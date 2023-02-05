@@ -1,9 +1,16 @@
-﻿
-import requests
+﻿class YaUploader:
+    def __init__(self, token: str):
+        self.token = token
 
-url = 'https://akabab.github.io/superhero-api/api/all.json'
+    def upload(self, file_path: str):
+        """Метод загружает файлы по списку file_list на яндекс диск"""
+        # Тут ваша логика
+        # Функция может ничего не возвращать
 
-data = requests.get(url).json()
-result = {key["name"]:key["powerstats"]["intelligence"] for key in data if key["name"]=="Hulk" or key["name"]=="Captain America" or key["name"]=="Thanos"}
 
-print(f'Самый умный супергерой из трех: {max(result, key= lambda x: result[x])}')
+if __name__ == '__main__':
+    # Получить путь к загружаемому файлу и токен от пользователя
+    path_to_file = ...
+    token = ...
+    uploader = YaUploader(token)
+    result = uploader.upload(path_to_file)
